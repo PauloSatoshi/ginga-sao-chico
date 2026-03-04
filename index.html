@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ginga São Chico – Capoeira &amp; Cultura Afro-Brasileira</title>
+<title>Ginga São Chico – Capoeira & Cultura Afro-Brasileira</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -53,6 +53,8 @@ h1.hero-title .it{font-style:italic}
 .btn-red:hover{background:var(--vermelho-escuro);transform:translateY(-2px)}
 .btn-blue{background:transparent;color:var(--azul-brilho);padding:.9rem 2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--azul-brilho);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .25s;display:inline-block}
 .btn-blue:hover{background:rgba(42,111,201,.15);transform:translateY(-2px)}
+.btn-whatsapp{background:#25D366;color:white;padding:.9rem 2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-whatsapp:hover{background:#128C7E;transform:translateY(-2px)}
 
 /* DIVIDERS */
 .divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(200,16,46,.3),transparent)}
@@ -137,8 +139,26 @@ h1.hero-title .it{font-style:italic}
 .pill-dot{width:6px;height:6px;border-radius:50%;background:var(--vermelho);flex-shrink:0}
 .local-note{font-size:.75rem;color:rgba(245,237,216,.35);margin-top:.8rem;font-style:italic;line-height:1.4}
 
+/* GALERIA - NOVO! */
+#galeria{background:var(--escuro)}
+.galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.foto-card{position:relative;overflow:hidden;border-radius:8px;background:var(--escuro2);transition:all .3s;cursor:pointer}
+.foto-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.foto-card img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .3s}
+.foto-card:hover img{transform:scale(1.05)}
+.foto-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(8,10,18,.95),transparent);padding:1.5rem 1rem 1rem;transform:translateY(100%);transition:transform .3s}
+.foto-card:hover .foto-overlay{transform:translateY(0)}
+.foto-titulo{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--branco);text-transform:uppercase}
+.foto-local{font-size:.75rem;color:var(--azul-brilho);margin-top:.2rem}
+
+/* VÍDEO - NOVO! */
+.video-section{margin-top:4rem}
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:var(--escuro2)}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2rem}
+
 /* CALENDÁRIO */
-#calendario{background:var(--escuro)}
+#calendario{background:var(--escuro2)}
 .eventos-list{margin-top:3rem;display:flex;flex-direction:column;gap:1.5px;background:rgba(200,16,46,.1)}
 .evento-item{background:var(--escuro);display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:2.5rem;padding:2rem 2.5rem;transition:background .3s}
 .evento-item:hover{background:#0A0C14}
@@ -189,6 +209,7 @@ h1.hero-title .it{font-style:italic}
 #contato-wrap{background:linear-gradient(135deg,var(--vermelho-escuro) 0%,var(--azul) 100%);padding:6rem 2.5rem;text-align:center}
 #contato-wrap h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:800;text-transform:uppercase;color:white;letter-spacing:-.01em;margin-bottom:1rem}
 #contato-wrap p{color:rgba(255,255,255,.7);font-size:1.05rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.7}
+.contato-botoes{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
 .contato-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
 .ctlink{display:flex;align-items:center;gap:.6rem;color:white;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid rgba(255,255,255,.3);padding-bottom:.2rem;transition:border-color .2s}
 .ctlink:hover{border-color:white}
@@ -208,12 +229,13 @@ footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
   nav ul{display:none}
   .sobre-grid,.beri-grid,.japa-grid,.pat-intro{grid-template-columns:1fr;gap:2.5rem}
   .sobre-stats-col{border-left:none;padding-left:0;border-top:2px solid rgba(200,16,46,.2);padding-top:2rem}
-  .cards-grid6,.locais-grid,.cotas-grid3{grid-template-columns:1fr}
+  .cards-grid6,.locais-grid,.cotas-grid3,.galeria-grid,.video-grid{grid-template-columns:1fr}
   .impacto-grid4{grid-template-columns:1fr 1fr}
   .evento-item{grid-template-columns:80px 1fr;gap:1.5rem}
   .evento-local-tag{display:none}
   footer{flex-direction:column;text-align:center}
   .japa-grid{grid-template-columns:1fr}
+  .contato-botoes{flex-direction:column;align-items:center}
 }
 </style>
 </head>
@@ -226,7 +248,8 @@ footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
     <li><a href="#sobre">O Projeto</a></li>
     <li><a href="#beribazu">Beribazu</a></li>
     <li><a href="#japa">Japa</a></li>
-    <li><a href="#locais">Aulas</a></li>
+    <li><a href="#atividades">Aulas</a></li>
+    <li><a href="#galeria">Galeria</a></li>
     <li><a href="#calendario">Eventos</a></li>
     <li><a href="#patrocinio">Patrocínio</a></li>
     <li><a href="#contato-wrap" class="nav-cta">Contato</a></li>
@@ -260,6 +283,7 @@ footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
       <div class="hero-actions">
         <a href="#patrocinio" class="btn-red">Seja Patrocinador</a>
         <a href="#sobre" class="btn-blue">Conheça o Projeto</a>
+        <a href="https://wa.me/5547999999999" class="btn-whatsapp" target="_blank">📱 WhatsApp</a>
       </div>
     </div>
     <div class="hero-stats">
@@ -520,6 +544,104 @@ footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
 
 <div class="divider"></div>
 
+<!-- GALERIA - NOVA SEÇÃO! -->
+<div id="galeria">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">Galeria</div>
+    <h2 class="sec-title">Momentos da<br><em>Nossa Roda</em></h2>
+    
+    <!-- GRID DE FOTOS -->
+    <div class="galeria-grid">
+      
+      <!-- FOTO 1 - Exemplo (substitua o link) -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=600&h=400&fit=crop" alt="Roda de capoeira">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Roda na Praça</div>
+          <div class="foto-local">Praça dos Paulas · 2024</div>
+        </div>
+      </div>
+      
+      <!-- FOTO 2 - Exemplo -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&h=400&fit=crop" alt="Aula de capoeira">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Aula de Berimbau</div>
+          <div class="foto-local">EBM João Germano · 2024</div>
+        </div>
+      </div>
+      
+      <!-- FOTO 3 - Exemplo -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1599552683573-9dc48255b7ef?w=600&h=400&fit=crop" alt="Comunidade">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Comunidade Tapera</div>
+          <div class="foto-local">Região Quilombola · 2024</div>
+        </div>
+      </div>
+      
+      <!-- FOTO 4 - Exemplo -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" alt="Crianças na roda">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Crianças na Roda</div>
+          <div class="foto-local">Caza Zoza · 2024</div>
+        </div>
+      </div>
+      
+      <!-- FOTO 5 - Exemplo -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=400&fit=crop" alt="Batizado">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Batizado 2024</div>
+          <div class="foto-local">Troca de Cordas · SFS</div>
+        </div>
+      </div>
+      
+      <!-- FOTO 6 - Exemplo -->
+      <div class="foto-card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=400&fit=crop" alt="Evento">
+        <div class="foto-overlay">
+          <div class="foto-titulo">Encontro Beribazu</div>
+          <div class="foto-local">Evento Regional · 2024</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- BOTÃO VER MAIS -->
+    <div style="text-align:center;margin-top:3rem">
+      <a href="https://instagram.com/gingasaochico" target="_blank" class="btn-blue">📸 Ver mais no Instagram</a>
+    </div>
+    
+    <!-- SEÇÃO DE VÍDEOS -->
+    <div class="video-section">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:var(--branco);text-transform:uppercase;margin-bottom:1.5rem;text-align:center">
+        Vídeos do Projeto
+      </h3>
+      
+      <div class="video-grid">
+        <!-- VÍDEO 1 - Substitua o código do YouTube -->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Ginga São Chico" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- VÍDEO 2 -->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Ginga São Chico" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:rgba(245,237,216,.5)">
+        💡 Substitua os códigos <code>dQw4w9WgXcQ</code> pelo código do seu vídeo no YouTube
+      </p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="divider-blue"></div>
+
 <!-- CALENDÁRIO -->
 <div id="calendario">
   <div class="section-inner fade-in">
@@ -533,164 +655,5 @@ footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
         </div>
         <div class="evento-info">
           <div class="ev-tipo">Batizado</div>
-          <h3>Batizado &amp; Troca de Cordas</h3>
-          <p>Cerimônia anual de graduação dos alunos do Ginga São Chico. Data a confirmar.</p>
-        </div>
-        <div class="evento-local-tag">
-          <div class="ev-local-name">São Francisco<br>do Sul, SC</div>
-        </div>
-      </div>
-      <div class="evento-item">
-        <div class="evento-data">
-          <div class="ev-dia">—</div>
-          <div class="ev-mes">2025</div>
-        </div>
-        <div class="evento-info">
-          <div class="ev-tipo">Roda Aberta</div>
-          <h3>Roda Cultural Comunitária</h3>
-          <p>Roda aberta ao público na Praça dos Paulas. Entrada gratuita para toda a comunidade.</p>
-        </div>
-        <div class="evento-local-tag">
-          <div class="ev-local-name">Praça dos Paulas<br>Centro, SFS</div>
-        </div>
-      </div>
-      <div class="evento-item">
-        <div class="evento-data">
-          <div class="ev-dia">—</div>
-          <div class="ev-mes">2025</div>
-        </div>
-        <div class="evento-info">
-          <div class="ev-tipo">Encontro Beribazu</div>
-          <h3>Encontro Regional Grupo Beribazu</h3>
-          <p>Intercâmbio com outros núcleos do Grupo Beribazu em Santa Catarina.</p>
-        </div>
-        <div class="evento-local-tag">
-          <div class="ev-local-name">Santa Catarina<br>SC</div>
-        </div>
-      </div>
-    </div>
-    <div class="cal-note">📅 As datas exatas serão divulgadas nas redes sociais do projeto. Acompanhe para não perder nenhum evento!</div>
-  </div>
-</div>
-
-<!-- IMPACTO -->
-<div id="impacto">
-  <div class="impacto-inner">
-    <div class="sec-tag" style="color:rgba(255,255,255,0.7)">Impacto Social</div>
-    <h2 class="sec-title" style="color:white">Transformação<br>em números</h2>
-    <div class="impacto-grid4">
-      <div class="imp-item"><div class="imp-num">200+</div><div class="imp-desc">Crianças e adolescentes atendidos</div></div>
-      <div class="imp-item"><div class="imp-num">5+</div><div class="imp-desc">Territórios e escolas atendidos</div></div>
-      <div class="imp-item"><div class="imp-num">25+</div><div class="imp-desc">Anos de trajetória na capoeira</div></div>
-      <div class="imp-item"><div class="imp-num">1</div><div class="imp-desc">Comunidade quilombola alcançada</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- PATROCÍNIO -->
-<div id="patrocinio">
-  <div class="section-inner fade-in">
-    <div class="sec-tag">Seja Parceiro</div>
-    <h2 class="sec-title">Patrocine a<br><em>Transformação</em></h2>
-    <div class="pat-intro">
-      <div>
-        <p>Apoiar o Ginga São Chico é investir diretamente na formação de crianças e adolescentes em situação de vulnerabilidade social, através de uma das mais ricas expressões da cultura brasileira.</p>
-        <p>Seu apoio viabiliza aulas, instrumentos musicais, uniformes, transporte para eventos, materiais pedagógicos e a expansão do projeto para mais territórios e comunidades.</p>
-        <p><strong style="color:var(--creme)">Para empresas:</strong> Associe sua marca a um projeto de alto impacto social, visibilidade regional e alinhamento com pautas ESG — diversidade, cultura e desenvolvimento comunitário.</p>
-      </div>
-      <div>
-        <p><strong style="color:var(--creme)">Por que apoiar?</strong></p>
-        <ul class="esg-points">
-          <li>Redução da vulnerabilidade social e prevenção da violência</li>
-          <li>Valorização da cultura afro-brasileira e da diversidade</li>
-          <li>Inclusão de crianças quilombolas e periféricas</li>
-          <li>Formação cidadã e desenvolvimento de habilidades</li>
-          <li>Visibilidade da marca em eventos e mídias do projeto</li>
-          <li>Alinhamento com agenda ESG e responsabilidade social</li>
-          <li>Capoeira como Patrimônio Cultural Imaterial da UNESCO</li>
-        </ul>
-      </div>
-    </div>
-    <div class="cotas-grid3">
-      <div class="cota-card">
-        <div class="cota-nivel">Cota 01</div>
-        <div class="cota-nome">Semente</div>
-        <div class="cota-valor">R$ 500 / mês</div>
-        <ul>
-          <li>Logo nas redes sociais do projeto</li>
-          <li>Menção em eventos como apoiador</li>
-          <li>Relatório semestral de impacto</li>
-          <li>2 convites para eventos do projeto</li>
-        </ul>
-        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
-      </div>
-      <div class="cota-card destaque">
-        <div class="cota-nivel">Cota 02 — Destaque</div>
-        <div class="cota-nome">Ginga</div>
-        <div class="cota-valor">R$ 1.500 / mês</div>
-        <ul>
-          <li>Logo em destaque em todas as comunicações</li>
-          <li>Logo nos uniformes dos alunos</li>
-          <li>Banner em todos os eventos</li>
-          <li>Relatório mensal de impacto</li>
-          <li>4 convites para batizados e rodas</li>
-          <li>Visita ao projeto com fotos e vídeos</li>
-        </ul>
-        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
-      </div>
-      <div class="cota-card">
-        <div class="cota-nivel">Cota 03 — Premium</div>
-        <div class="cota-nome">Axé</div>
-        <div class="cota-valor">R$ 3.000 / mês</div>
-        <ul>
-          <li>Co-branding exclusivo no projeto</li>
-          <li>Naming em eventos e oficinas</li>
-          <li>Produção de vídeo institucional</li>
-          <li>Matéria na mídia local com sua marca</li>
-          <li>Relatório mensal + reunião de alinhamento</li>
-          <li>Acesso ilimitado a eventos do projeto</li>
-          <li>Ativações especiais conforme demanda</li>
-        </ul>
-        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
-      </div>
-    </div>
-    <div class="fiscal-box">
-      <div class="icon">📋</div>
-      <div>
-        <h3>Transparência e Prestação de Contas</h3>
-        <p>O Ginga São Chico opera com total transparência. Todos os patrocinadores recebem relatórios periódicos com as ações realizadas, número de beneficiados, fotos, vídeos e prestação de contas dos recursos aplicados.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTATO -->
-<div id="contato-wrap">
-  <h2>Vamos conversar?</h2>
-  <p>Entre em contato para saber mais sobre o projeto, apoiar ou agendar uma visita. Será um prazer apresentar o Ginga São Chico pessoalmente.</p>
-  <div class="contato-links">
-    <a class="ctlink" href="https://wa.me/5547999999999" target="_blank">📱 WhatsApp</a>
-    <a class="ctlink" href="mailto:contato@gingasaochico.com.br">✉️ E-mail</a>
-    <a class="ctlink" href="https://instagram.com/gingasaochico" target="_blank">📸 Instagram</a>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">Ginga <span>São Chico</span></div>
-  <p>Grupo Beribazu Capoeira · São Francisco do Sul, SC<br>Coordenador: Paulo Satoshi Shinhe (Japa)</p>
-  <p style="font-size:.72rem;color:rgba(245,237,216,.2)">© 2025 Ginga São Chico. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').style.borderBottomColor =
-    window.scrollY > 80 ? 'rgba(200,16,46,0.4)' : 'rgba(200,16,46,0.2)';
-});
-</script>
-</body>
-</html>
+          <h3>Batizado & Troca de Cordas</h3>
+          <p>Cerimônia anual de graduação dos al
