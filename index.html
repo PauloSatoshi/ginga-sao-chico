@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ginga São Chico – Capoeira &amp; Cultura Afro-Brasileira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vermelho:#C8102E;--vermelho-escuro:#8B0B1F;
+  --azul:#003087;--azul-claro:#1A5296;--azul-brilho:#2A6FC9;
+  --creme:#F5EDD8;--branco:#FDFAF3;
+  --escuro:#080A12;--escuro2:#0E1320;--cinza:#A0A8B8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--escuro);color:var(--creme);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,10,18,0.97);border-bottom:1px solid rgba(200,16,46,0.2)}
+.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:var(--branco);letter-spacing:.05em;text-transform:uppercase}
+.nav-logo-text span{color:var(--vermelho)}
+nav ul{list-style:none;display:flex;gap:.2rem}
+nav a{color:var(--creme);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.7;padding:.5rem .8rem;transition:all .2s}
+nav a:hover{opacity:1;color:var(--vermelho)}
+.nav-cta{background:var(--vermelho)!important;color:white!important;opacity:1!important;padding:.5rem 1.2rem!important;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.nav-cta:hover{background:var(--vermelho-escuro)!important}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;padding:8rem 2.5rem 5rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 40%,rgba(0,48,135,.25) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 10% 80%,rgba(200,16,46,.2) 0%,transparent 55%),linear-gradient(160deg,#080A12 0%,#040609 100%)}
+.hero-deco{position:absolute;right:-5vw;top:50%;transform:translateY(-50%);width:55vw;height:55vw;max-width:680px;max-height:680px;opacity:.055;pointer-events:none}
+.c-r{stroke:var(--vermelho);stroke-width:2;fill:none;animation:spinS 50s linear infinite;transform-origin:center}
+.c-b{stroke:var(--azul-brilho);stroke-width:2;fill:none;animation:spinS 70s linear infinite reverse;transform-origin:center}
+@keyframes spinS{to{transform:rotate(360deg)}}
+.hero-tag{position:relative;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--vermelho);display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.hero-tag::before{content:'';display:block;width:30px;height:2px;background:var(--vermelho)}
+h1.hero-title{position:relative;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,11vw,9.5rem);font-weight:800;line-height:.88;color:var(--branco);text-transform:uppercase;letter-spacing:-.02em}
+h1.hero-title .red{color:var(--vermelho)}
+h1.hero-title .blu{color:var(--azul-brilho)}
+h1.hero-title .it{font-style:italic}
+.hero-row{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;margin-top:2.5rem;flex-wrap:wrap;gap:2rem}
+.hero-desc{font-size:clamp(.9rem,1.5vw,1.1rem);font-weight:300;color:rgba(245,237,216,.7);max-width:500px;line-height:1.8}
+.hero-desc strong{color:var(--creme);font-weight:600}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.hero-stats{display:flex;gap:3rem}
+.hstat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:var(--vermelho);line-height:1;display:block}
+.hstat-label{font-size:.72rem;color:rgba(245,237,216,.5);text-transform:uppercase;letter-spacing:.1em}
+
+/* BUTTONS */
+.btn-red{background:var(--vermelho);color:white;padding:.9rem 2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .25s;display:inline-block}
+.btn-red:hover{background:var(--vermelho-escuro);transform:translateY(-2px)}
+.btn-blue{background:transparent;color:var(--azul-brilho);padding:.9rem 2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--azul-brilho);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .25s;display:inline-block}
+.btn-blue:hover{background:rgba(42,111,201,.15);transform:translateY(-2px)}
+
+/* DIVIDERS */
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(200,16,46,.3),transparent)}
+.divider-blue{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(0,48,135,.3),transparent)}
+
+/* SECTIONS */
+.section-inner{max-width:1200px;margin:0 auto;padding:6rem 2.5rem}
+.sec-tag{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--vermelho);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.sec-tag::after{content:'';flex:1;max-width:50px;height:1.5px;background:var(--vermelho);opacity:.5}
+.sec-tag-blue{color:var(--azul-brilho)}
+.sec-tag-blue::after{background:var(--azul-brilho)}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:.95;text-transform:uppercase;color:var(--branco);letter-spacing:-.01em;margin-bottom:2rem}
+.sec-title em{color:var(--vermelho);font-style:italic}
+.sec-title .be{color:var(--azul-brilho);font-style:italic}
+
+/* SOBRE */
+#sobre{background:var(--escuro2)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.sobre-text p{font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.2rem}
+.unescos-badge{display:inline-flex;align-items:center;gap:.8rem;background:rgba(200,16,46,.08);border:1px solid rgba(200,16,46,.3);padding:.7rem 1.3rem;margin-top:1rem;font-size:.8rem;color:rgba(245,237,216,.8)}
+.unescos-badge span{color:var(--vermelho);font-weight:700}
+.sobre-stats-col{border-left:2px solid rgba(200,16,46,.25);padding-left:3rem}
+.stat-row{padding:1.8rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.stat-row:last-child{border-bottom:none}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-size:4rem;font-weight:800;color:var(--vermelho);line-height:1}
+.stat-n.bl{color:var(--azul-brilho)}
+.stat-l{font-size:.8rem;color:rgba(245,237,216,.5);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem}
+
+/* BERIBAZU */
+#beribazu{background:var(--escuro)}
+.beri-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+.beri-logo-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3rem;background:rgba(0,48,135,.04);border:1px solid rgba(0,48,135,.2);gap:1.5rem;position:relative}
+.beri-logo-hex{width:200px;height:200px;background:linear-gradient(135deg,#C8102E 0%,#003087 100%);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:white;text-align:center;line-height:1.2}
+.beri-logo-caption{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,216,.4);text-align:center}
+.beri-lema{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--azul-brilho);margin-bottom:1.5rem}
+.beri-lema span{color:var(--vermelho)}
+.beri-info p{font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.2rem}
+.mestres-list{margin-top:1.5rem;border-top:1px solid rgba(200,16,46,.2);padding-top:1.5rem}
+.mestres-list h4{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vermelho);margin-bottom:1rem}
+.mestre-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem}
+.mestre-item .name{color:var(--branco);font-weight:600}
+.mestre-item .city{color:rgba(245,237,216,.4);font-size:.75rem}
+.corda-badge{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;background:rgba(0,48,135,.3);border:1px solid rgba(0,48,135,.5);color:var(--azul-brilho);padding:.2rem .6rem;text-transform:uppercase;white-space:nowrap}
+
+/* JAPA */
+#japa{background:var(--escuro2)}
+.japa-grid{display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
+.japa-avatar{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.japa-hex{width:180px;height:180px;background:linear-gradient(135deg,#C8102E 0%,#003087 100%);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:800;color:white}
+.japa-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--branco);text-align:center}
+.japa-role{font-size:.75rem;color:var(--vermelho);text-align:center;text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+.japa-since{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,237,216,.4);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.4rem 1rem;text-align:center;width:100%}
+.japa-masters{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.master-chip{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.25);padding:.5rem 1rem;font-size:.82rem;color:rgba(245,237,216,.8)}
+.master-chip span{color:var(--vermelho);font-weight:600;display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}
+.title-bio{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--branco);letter-spacing:.03em;margin-bottom:.3rem}
+.apelido{color:var(--vermelho);font-style:italic}
+
+/* ATIVIDADES */
+#atividades{background:var(--escuro)}
+.cards-grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(200,16,46,.12);margin-top:3rem}
+.act-card{background:var(--escuro);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s}
+.act-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vermelho);transform:scaleY(0);transform-origin:top;transition:transform .4s ease}
+.act-card:hover{background:#0D1020}
+.act-card:hover::before{transform:scaleY(1)}
+.act-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.act-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--branco);margin-bottom:.7rem}
+.act-card p{font-size:.88rem;line-height:1.7;color:rgba(245,237,216,.6)}
+
+/* LOCAIS */
+#locais{background:var(--escuro2)}
+.locais-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(0,48,135,.15);margin-top:3rem}
+.local-card{background:var(--escuro2);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:background .3s}
+.local-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--azul),var(--vermelho));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.local-card:hover{background:#0F1525}
+.local-card:hover::after{transform:scaleX(1)}
+.local-num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:800;color:rgba(0,48,135,.2);line-height:1;position:absolute;top:1rem;right:1.5rem}
+.local-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--branco);margin-bottom:.3rem;padding-right:3rem}
+.local-bairro{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--azul-brilho);font-weight:600;margin-bottom:1rem}
+.horario-pills{display:flex;flex-direction:column;gap:.5rem}
+.pill{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(245,237,216,.65)}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--vermelho);flex-shrink:0}
+.local-note{font-size:.75rem;color:rgba(245,237,216,.35);margin-top:.8rem;font-style:italic;line-height:1.4}
+
+/* CALENDÁRIO */
+#calendario{background:var(--escuro)}
+.eventos-list{margin-top:3rem;display:flex;flex-direction:column;gap:1.5px;background:rgba(200,16,46,.1)}
+.evento-item{background:var(--escuro);display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:2.5rem;padding:2rem 2.5rem;transition:background .3s}
+.evento-item:hover{background:#0A0C14}
+.evento-data{text-align:center;border-right:1px solid rgba(200,16,46,.15);padding-right:2.5rem}
+.ev-dia{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:800;color:var(--vermelho);line-height:1}
+.ev-mes{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:rgba(245,237,216,.4)}
+.evento-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;color:var(--branco);margin-bottom:.3rem}
+.evento-info p{font-size:.85rem;color:rgba(245,237,216,.55)}
+.ev-tipo{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:rgba(0,48,135,.2);border:1px solid rgba(0,48,135,.4);color:var(--azul-brilho);padding:.2rem .7rem;margin-bottom:.5rem}
+.evento-local-tag{text-align:right;min-width:140px}
+.ev-local-name{font-size:.82rem;color:rgba(245,237,216,.5);font-style:italic;line-height:1.4}
+.cal-note{margin-top:2rem;background:rgba(0,48,135,.08);border:1px solid rgba(0,48,135,.2);padding:1.2rem 1.8rem;font-size:.85rem;color:rgba(245,237,216,.5);line-height:1.6}
+
+/* IMPACTO */
+#impacto{background:var(--vermelho)}
+.impacto-inner{max-width:1200px;margin:0 auto;padding:5rem 2.5rem}
+.impacto-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(0,0,0,.15);margin-top:2.5rem}
+.imp-item{background:var(--vermelho);padding:2.5rem 2rem;text-align:center;transition:background .3s}
+.imp-item:hover{background:var(--vermelho-escuro)}
+.imp-num{font-family:'Barlow Condensed',sans-serif;font-size:3.8rem;font-weight:800;color:white;line-height:1}
+.imp-desc{font-size:.78rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.1em;margin-top:.4rem;line-height:1.4}
+
+/* PATROCINIO */
+#patrocinio{background:var(--escuro2)}
+.pat-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:4rem}
+.pat-intro p{font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.2rem}
+.esg-points{list-style:none}
+.esg-points li{padding:.8rem 0;border-bottom:1px solid rgba(200,16,46,.1);font-size:.9rem;color:rgba(245,237,216,.7);display:flex;gap:.8rem;align-items:flex-start;line-height:1.4}
+.esg-points li::before{content:'▸';color:var(--vermelho);font-size:.9rem;flex-shrink:0}
+.cotas-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(200,16,46,.12)}
+.cota-card{background:var(--escuro2);padding:2.5rem 2rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .3s}
+.cota-card.destaque{background:rgba(200,16,46,.06)}
+.cota-card:hover{background:#0E1425}
+.cota-card.destaque::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--vermelho)}
+.cota-nivel{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--azul-brilho);border:1px solid rgba(42,111,201,.3);display:inline-block;padding:.25rem .7rem;margin-bottom:1rem;width:fit-content}
+.cota-nome{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;text-transform:uppercase;color:var(--branco);line-height:1;margin-bottom:.3rem}
+.cota-valor{font-size:.82rem;color:var(--vermelho);font-weight:600;margin-bottom:1.5rem;letter-spacing:.05em}
+.cota-card ul{list-style:none;flex:1}
+.cota-card ul li{font-size:.84rem;color:rgba(245,237,216,.65);padding:.45rem 0;border-bottom:1px solid rgba(200,16,46,.07);display:flex;gap:.5rem;line-height:1.4}
+.cota-card ul li::before{content:'◆';color:var(--vermelho);font-size:.4rem;margin-top:.4rem;flex-shrink:0}
+.cota-card .btn-red{margin-top:2rem;display:block;text-align:center}
+.fiscal-box{margin-top:3rem;background:rgba(0,48,135,.08);border:1px solid rgba(0,48,135,.2);padding:2rem 2.5rem;display:flex;gap:1.5rem;align-items:flex-start}
+.fiscal-box .icon{font-size:2rem;flex-shrink:0}
+.fiscal-box h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--azul-brilho);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.fiscal-box p{font-size:.87rem;color:rgba(245,237,216,.6);line-height:1.65}
+
+/* CONTATO */
+#contato-wrap{background:linear-gradient(135deg,var(--vermelho-escuro) 0%,var(--azul) 100%);padding:6rem 2.5rem;text-align:center}
+#contato-wrap h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:800;text-transform:uppercase;color:white;letter-spacing:-.01em;margin-bottom:1rem}
+#contato-wrap p{color:rgba(255,255,255,.7);font-size:1.05rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.7}
+.contato-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.ctlink{display:flex;align-items:center;gap:.6rem;color:white;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid rgba(255,255,255,.3);padding-bottom:.2rem;transition:border-color .2s}
+.ctlink:hover{border-color:white}
+
+/* FOOTER */
+footer{background:#040509;padding:3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(200,16,46,.1)}
+.footer-brand{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;color:white;letter-spacing:.05em}
+.footer-brand span{color:var(--vermelho)}
+footer p{font-size:.78rem;color:rgba(245,237,216,.3);line-height:1.6}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(25px);transition:opacity .65s ease,transform .65s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav ul{display:none}
+  .sobre-grid,.beri-grid,.japa-grid,.pat-intro{grid-template-columns:1fr;gap:2.5rem}
+  .sobre-stats-col{border-left:none;padding-left:0;border-top:2px solid rgba(200,16,46,.2);padding-top:2rem}
+  .cards-grid6,.locais-grid,.cotas-grid3{grid-template-columns:1fr}
+  .impacto-grid4{grid-template-columns:1fr 1fr}
+  .evento-item{grid-template-columns:80px 1fr;gap:1.5rem}
+  .evento-local-tag{display:none}
+  footer{flex-direction:column;text-align:center}
+  .japa-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo-text">Ginga <span>São Chico</span></div>
+  <ul>
+    <li><a href="#sobre">O Projeto</a></li>
+    <li><a href="#beribazu">Beribazu</a></li>
+    <li><a href="#japa">Japa</a></li>
+    <li><a href="#locais">Aulas</a></li>
+    <li><a href="#calendario">Eventos</a></li>
+    <li><a href="#patrocinio">Patrocínio</a></li>
+    <li><a href="#contato-wrap" class="nav-cta">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-deco" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <circle class="c-r" cx="250" cy="250" r="240"/>
+    <circle class="c-r" cx="250" cy="250" r="200"/>
+    <circle class="c-b" cx="250" cy="250" r="170"/>
+    <circle class="c-b" cx="250" cy="250" r="130"/>
+    <circle class="c-r" cx="250" cy="250" r="90"/>
+    <line stroke="#C8102E" stroke-width="1.5" x1="10" y1="250" x2="490" y2="250"/>
+    <line stroke="#C8102E" stroke-width="1.5" x1="250" y1="10" x2="250" y2="490"/>
+    <line stroke="#2A6FC9" stroke-width="1.5" x1="74" y1="74" x2="426" y2="426"/>
+    <line stroke="#2A6FC9" stroke-width="1.5" x1="426" y1="74" x2="74" y2="426"/>
+  </svg>
+
+  <div class="hero-tag">São Francisco do Sul · Santa Catarina · Desde 1999</div>
+  <h1 class="hero-title">
+    <span class="red">Ginga</span><br>
+    <span class="blu it">São</span><br>
+    Chico
+  </h1>
+  <div class="hero-row">
+    <div>
+      <p class="hero-desc"><strong>Capoeira, cultura afro-brasileira e transformação social</strong> — levando a roda a territórios periféricos, escolas públicas e comunidades quilombolas de São Francisco do Sul.</p>
+      <div class="hero-actions">
+        <a href="#patrocinio" class="btn-red">Seja Patrocinador</a>
+        <a href="#sobre" class="btn-blue">Conheça o Projeto</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hstat-num">200+</span>
+        <div class="hstat-label">Crianças atendidas</div>
+      </div>
+      <div>
+        <span class="hstat-num">5+</span>
+        <div class="hstat-label">Territórios</div>
+      </div>
+      <div>
+        <span class="hstat-num">25+</span>
+        <div class="hstat-label">Anos de capoeira</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SOBRE -->
+<div id="sobre">
+  <div class="section-inner fade-in">
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <div class="sec-tag">O Projeto</div>
+        <h2 class="sec-title">Raízes que<br><em>transformam</em></h2>
+        <p>O Ginga São Chico é uma iniciativa sociocultural dedicada à valorização da capoeira como patrimônio cultural brasileiro e instrumento de desenvolvimento integral de crianças e adolescentes, especialmente em contextos de vulnerabilidade social.</p>
+        <p>A capoeira é o eixo estruturante de tudo: através dela promovemos educação corporal, formação cidadã, fortalecimento da identidade afro-brasileira, convivência e desenvolvimento socioemocional.</p>
+        <p>Atuamos em escolas municipais, praças públicas, espaços culturais e regiões quilombolas — levando a roda aonde a comunidade está, sem barreiras de acesso e com o maior alcance possível.</p>
+        <div class="unescos-badge">🌍 <span>UNESCO 2014</span> — Capoeira: Patrimônio Cultural Imaterial da Humanidade</div>
+      </div>
+      <div class="sobre-stats-col">
+        <div class="stat-row">
+          <div class="stat-n">200+</div>
+          <div class="stat-l">Crianças e adolescentes atendidos</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-n bl">5+</div>
+          <div class="stat-l">Territórios de atuação em SFS</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-n">25+</div>
+          <div class="stat-l">Anos de trajetória do educador</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-n bl">100%</div>
+          <div class="stat-l">Gratuito para todos os participantes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-blue"></div>
+
+<!-- BERIBAZU -->
+<div id="beribazu">
+  <div class="section-inner fade-in">
+    <div class="beri-grid">
+      <div>
+        <div class="sec-tag sec-tag-blue">O Grupo</div>
+        <h2 class="sec-title">Grupo<br><span class="be">Beribazu</span></h2>
+        <div class="beri-lema">Arte <span>–</span> Luta</div>
+        <div class="beri-info">
+          <p>Fundado em <strong>11 de agosto de 1972</strong>, no Colégio Agrícola de Brasília, pelo <strong>Mestre Zulu</strong>, o Grupo Beribazu é uma das mais tradicionais organizações de capoeira do Brasil, com núcleos espalhados pelo país e no exterior.</p>
+          <p>A filosofia do binômio Arte-Luta busca superar a divisão entre Capoeira Angola e Regional, difundindo a capoeira pela análise crítica de seus valores histórico-culturais e contribuindo para a formação integral do ser humano e o exercício da cidadania.</p>
+          <p>O grupo conta com mais de 20 mestres ativos e 4 <strong>Mestres Dignificadores</strong>, portadores da corda branca — a mais alta graduação.</p>
+        </div>
+        <div class="mestres-list">
+          <h4>🥋 Mestres Dignificadores — Corda Branca</h4>
+          <div class="mestre-item">
+            <span class="name">Mestre Falcão</span>
+            <span class="corda-badge">Corda Branca</span>
+            <span class="city">Florianópolis-SC / Goiânia-GO</span>
+          </div>
+          <div class="mestre-item">
+            <span class="name">Mestre Luiz Renato</span>
+            <span class="corda-badge">Corda Branca</span>
+            <span class="city">Brasília-DF</span>
+          </div>
+          <div class="mestre-item">
+            <span class="name">Mestre Fábio</span>
+            <span class="corda-badge">Corda Branca</span>
+            <span class="city">Vitória-ES</span>
+          </div>
+          <div class="mestre-item">
+            <span class="name">Mestre Onça</span>
+            <span class="corda-badge">Corda Branca</span>
+            <span class="city">Brasília-DF</span>
+          </div>
+        </div>
+      </div>
+      <div class="beri-logo-wrap">
+        <div class="beri-logo-hex">GRUPO<br>BERIBAZU<br>CAPOEIRA</div>
+        <div class="beri-logo-caption">Fundado em 1972 · Brasília · Brasil</div>
+        <div style="margin-top:1rem;text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--azul-brilho);letter-spacing:.15em;text-transform:uppercase">Arte – Luta</div>
+          <div style="font-size:.78rem;color:rgba(245,237,216,.4);margin-top:.3rem">Formação integral pelo movimento</div>
+        </div>
+        <div style="display:flex;gap:2rem;margin-top:1.5rem">
+          <div style="text-align:center">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--vermelho)">52+</div>
+            <div style="font-size:.68rem;color:rgba(245,237,216,.4);text-transform:uppercase;letter-spacing:.1em">Anos</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--azul-brilho)">20+</div>
+            <div style="font-size:.68rem;color:rgba(245,237,216,.4);text-transform:uppercase;letter-spacing:.1em">Mestres</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--vermelho)">BR+</div>
+            <div style="font-size:.68rem;color:rgba(245,237,216,.4);text-transform:uppercase;letter-spacing:.1em">Núcleos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- JAPA -->
+<div id="japa">
+  <div class="section-inner fade-in">
+    <div class="japa-grid">
+      <div class="japa-avatar">
+        <div class="japa-hex">JP</div>
+        <div class="japa-name">Paulo Satoshi<br>Shinhe</div>
+        <div class="japa-role">Capoeirista · Educador Social</div>
+        <div class="japa-since">Na capoeira desde 1999</div>
+        <div class="japa-masters">
+          <div class="master-chip"><span>Discípulo de</span>Ctr. Cristian</div>
+          <div class="master-chip"><span>Formação com</span>Mestre Lelo</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-tag">O Educador</div>
+        <div class="title-bio">Japa — <span class="apelido">Raiz, Disciplina<br>e Missão Social</span></div>
+        <p style="margin-top:1.2rem;font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.1rem"><strong style="color:var(--creme)">Paulo Satoshi Shinhe</strong>, o Japa, é capoeirista e educador social há mais de duas décadas. Iniciou sua trajetória na capoeira em 1999, desenvolvendo ao longo do tempo uma atuação voltada à formação humana por meio da cultura afro-brasileira.</p>
+        <p style="font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.1rem">Discípulo do <strong style="color:var(--creme)">Contramestre Cristian</strong> (Grupo Beribazu) e com formação junto ao <strong style="color:var(--creme)">Mestre Lelo</strong>, consolidou sua prática fundamentada na tradição, na disciplina e no papel social da capoeira.</p>
+        <p style="font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75);margin-bottom:1.1rem">Desde 2022, intensificou sua atuação comunitária com aulas regulares na <strong style="color:var(--creme)">Praça dos Paulas</strong> (EBB Santa Catarina). A partir de 2023, expandiu para escolas municipais — incluindo a <strong style="color:var(--creme)">EBM Izidoro Curvello</strong>, na região quilombola do Tapera — e para a <strong style="color:var(--creme)">Caza Zoza Espaço Cultural</strong>.</p>
+        <p style="font-size:1rem;line-height:1.85;color:rgba(245,237,216,.75)">Como coordenador do Ginga São Chico, articula ações educativas, oficinas formativas e eventos culturais que integram patrimônio cultural, educação e impacto social, consolidando a capoeira como ferramenta de transformação comunitária em São Francisco do Sul.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-blue"></div>
+
+<!-- ATIVIDADES -->
+<div id="atividades">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">O Que Fazemos</div>
+    <h2 class="sec-title">Atividades do<br><em>Projeto</em></h2>
+    <div class="cards-grid6">
+      <div class="act-card">
+        <span class="act-icon">🥋</span>
+        <div class="act-title">Aulas de Capoeira</div>
+        <p>Treinos regulares para crianças, adolescentes e adultos em escolas públicas, praças e espaços culturais, com abordagem pedagógica e formativa.</p>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">🥁</span>
+        <div class="act-title">Oficinas Culturais</div>
+        <p>Formação em história da capoeira, cultura afro-brasileira, musicalidade, fabricação de instrumentos e tradições do berimbau e do pandeiro.</p>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">⭕</span>
+        <div class="act-title">Rodas Abertas</div>
+        <p>Apresentações e rodas comunitárias em espaços públicos, promovendo cultura, celebração e inclusão social em todo o município.</p>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">🎓</span>
+        <div class="act-title">Batizados e Graduações</div>
+        <p>Cerimônias de iniciação e troca de cordas que celebram o desenvolvimento dos alunos e fortalecem o pertencimento à tradição.</p>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">🌍</span>
+        <div class="act-title">Intercâmbios</div>
+        <p>Participação em eventos regionais e nacionais do Grupo Beribazu, ampliando horizontes culturais e a rede de formação dos praticantes.</p>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">🏫</span>
+        <div class="act-title">Educação nas Escolas</div>
+        <p>Integração da capoeira como conteúdo de educação física, arte e cidadania nas escolas municipais de São Francisco do Sul.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LOCAIS -->
+<div id="locais">
+  <div class="section-inner fade-in">
+    <div class="sec-tag sec-tag-blue">Onde Atuamos</div>
+    <h2 class="sec-title">Locais de <span class="be">Aulas</span></h2>
+    <div class="locais-grid">
+      <div class="local-card">
+        <div class="local-num">01</div>
+        <div class="local-name">Praça dos Paulas</div>
+        <div class="local-bairro">Centro · EBB Santa Catarina</div>
+        <div class="horario-pills">
+          <div class="pill"><div class="pill-dot"></div>Aulas regulares — consulte horários</div>
+          <div class="pill"><div class="pill-dot"></div>Turmas: crianças, jovens e adultos</div>
+        </div>
+        <div class="local-note">Espaço público aberto à comunidade. Desde 2022.</div>
+      </div>
+      <div class="local-card">
+        <div class="local-num">02</div>
+        <div class="local-name">EBM João Germano</div>
+        <div class="local-bairro">Bairro Iperoba</div>
+        <div class="horario-pills">
+          <div class="pill"><div class="pill-dot"></div>Aulas integradas à grade escolar</div>
+          <div class="pill"><div class="pill-dot"></div>Turmas do ensino fundamental</div>
+        </div>
+        <div class="local-note">Escola municipal. Atuação desde 2023.</div>
+      </div>
+      <div class="local-card">
+        <div class="local-num">03</div>
+        <div class="local-name">EBM Izidoro Curvello</div>
+        <div class="local-bairro">Bairro Tapera · Região Quilombola</div>
+        <div class="horario-pills">
+          <div class="pill"><div class="pill-dot"></div>Aulas com foco em identidade afro</div>
+          <div class="pill"><div class="pill-dot"></div>Território de especial significado</div>
+        </div>
+        <div class="local-note">Única comunidade quilombola do projeto.</div>
+      </div>
+      <div class="local-card">
+        <div class="local-num">04</div>
+        <div class="local-name">EBM Ida Beatriz</div>
+        <div class="local-bairro">São Francisco do Sul</div>
+        <div class="horario-pills">
+          <div class="pill"><div class="pill-dot"></div>Aulas regulares na escola</div>
+          <div class="pill"><div class="pill-dot"></div>Ensino fundamental</div>
+        </div>
+        <div class="local-note">Escola municipal. Atuação desde 2023.</div>
+      </div>
+      <div class="local-card">
+        <div class="local-num">05</div>
+        <div class="local-name">Caza Zoza</div>
+        <div class="local-bairro">Espaço Cultural</div>
+        <div class="horario-pills">
+          <div class="pill"><div class="pill-dot"></div>Oficinas e aulas abertas</div>
+          <div class="pill"><div class="pill-dot"></div>Eventos e rodas culturais</div>
+        </div>
+        <div class="local-note">Espaço cultural parceiro do projeto.</div>
+      </div>
+      <div class="local-card" style="background:rgba(0,48,135,0.04);border:1px dashed rgba(0,48,135,0.2);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:1rem">
+        <div style="font-size:2rem">📍</div>
+        <div class="local-name" style="padding-right:0">Quer um polo no seu bairro?</div>
+        <div style="font-size:.82rem;color:rgba(245,237,216,.5);line-height:1.5">Entre em contato para expandirmos o projeto para mais comunidades.</div>
+        <a href="#contato-wrap" class="btn-blue" style="padding:.6rem 1.2rem;font-size:.8rem">Fale Conosco</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CALENDÁRIO -->
+<div id="calendario">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">Agenda</div>
+    <h2 class="sec-title">Próximos<br><em>Eventos</em></h2>
+    <div class="eventos-list">
+      <div class="evento-item">
+        <div class="evento-data">
+          <div class="ev-dia">—</div>
+          <div class="ev-mes">2025</div>
+        </div>
+        <div class="evento-info">
+          <div class="ev-tipo">Batizado</div>
+          <h3>Batizado &amp; Troca de Cordas</h3>
+          <p>Cerimônia anual de graduação dos alunos do Ginga São Chico. Data a confirmar.</p>
+        </div>
+        <div class="evento-local-tag">
+          <div class="ev-local-name">São Francisco<br>do Sul, SC</div>
+        </div>
+      </div>
+      <div class="evento-item">
+        <div class="evento-data">
+          <div class="ev-dia">—</div>
+          <div class="ev-mes">2025</div>
+        </div>
+        <div class="evento-info">
+          <div class="ev-tipo">Roda Aberta</div>
+          <h3>Roda Cultural Comunitária</h3>
+          <p>Roda aberta ao público na Praça dos Paulas. Entrada gratuita para toda a comunidade.</p>
+        </div>
+        <div class="evento-local-tag">
+          <div class="ev-local-name">Praça dos Paulas<br>Centro, SFS</div>
+        </div>
+      </div>
+      <div class="evento-item">
+        <div class="evento-data">
+          <div class="ev-dia">—</div>
+          <div class="ev-mes">2025</div>
+        </div>
+        <div class="evento-info">
+          <div class="ev-tipo">Encontro Beribazu</div>
+          <h3>Encontro Regional Grupo Beribazu</h3>
+          <p>Intercâmbio com outros núcleos do Grupo Beribazu em Santa Catarina.</p>
+        </div>
+        <div class="evento-local-tag">
+          <div class="ev-local-name">Santa Catarina<br>SC</div>
+        </div>
+      </div>
+    </div>
+    <div class="cal-note">📅 As datas exatas serão divulgadas nas redes sociais do projeto. Acompanhe para não perder nenhum evento!</div>
+  </div>
+</div>
+
+<!-- IMPACTO -->
+<div id="impacto">
+  <div class="impacto-inner">
+    <div class="sec-tag" style="color:rgba(255,255,255,0.7)">Impacto Social</div>
+    <h2 class="sec-title" style="color:white">Transformação<br>em números</h2>
+    <div class="impacto-grid4">
+      <div class="imp-item"><div class="imp-num">200+</div><div class="imp-desc">Crianças e adolescentes atendidos</div></div>
+      <div class="imp-item"><div class="imp-num">5+</div><div class="imp-desc">Territórios e escolas atendidos</div></div>
+      <div class="imp-item"><div class="imp-num">25+</div><div class="imp-desc">Anos de trajetória na capoeira</div></div>
+      <div class="imp-item"><div class="imp-num">1</div><div class="imp-desc">Comunidade quilombola alcançada</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PATROCÍNIO -->
+<div id="patrocinio">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">Seja Parceiro</div>
+    <h2 class="sec-title">Patrocine a<br><em>Transformação</em></h2>
+    <div class="pat-intro">
+      <div>
+        <p>Apoiar o Ginga São Chico é investir diretamente na formação de crianças e adolescentes em situação de vulnerabilidade social, através de uma das mais ricas expressões da cultura brasileira.</p>
+        <p>Seu apoio viabiliza aulas, instrumentos musicais, uniformes, transporte para eventos, materiais pedagógicos e a expansão do projeto para mais territórios e comunidades.</p>
+        <p><strong style="color:var(--creme)">Para empresas:</strong> Associe sua marca a um projeto de alto impacto social, visibilidade regional e alinhamento com pautas ESG — diversidade, cultura e desenvolvimento comunitário.</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--creme)">Por que apoiar?</strong></p>
+        <ul class="esg-points">
+          <li>Redução da vulnerabilidade social e prevenção da violência</li>
+          <li>Valorização da cultura afro-brasileira e da diversidade</li>
+          <li>Inclusão de crianças quilombolas e periféricas</li>
+          <li>Formação cidadã e desenvolvimento de habilidades</li>
+          <li>Visibilidade da marca em eventos e mídias do projeto</li>
+          <li>Alinhamento com agenda ESG e responsabilidade social</li>
+          <li>Capoeira como Patrimônio Cultural Imaterial da UNESCO</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cotas-grid3">
+      <div class="cota-card">
+        <div class="cota-nivel">Cota 01</div>
+        <div class="cota-nome">Semente</div>
+        <div class="cota-valor">R$ 500 / mês</div>
+        <ul>
+          <li>Logo nas redes sociais do projeto</li>
+          <li>Menção em eventos como apoiador</li>
+          <li>Relatório semestral de impacto</li>
+          <li>2 convites para eventos do projeto</li>
+        </ul>
+        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
+      </div>
+      <div class="cota-card destaque">
+        <div class="cota-nivel">Cota 02 — Destaque</div>
+        <div class="cota-nome">Ginga</div>
+        <div class="cota-valor">R$ 1.500 / mês</div>
+        <ul>
+          <li>Logo em destaque em todas as comunicações</li>
+          <li>Logo nos uniformes dos alunos</li>
+          <li>Banner em todos os eventos</li>
+          <li>Relatório mensal de impacto</li>
+          <li>4 convites para batizados e rodas</li>
+          <li>Visita ao projeto com fotos e vídeos</li>
+        </ul>
+        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
+      </div>
+      <div class="cota-card">
+        <div class="cota-nivel">Cota 03 — Premium</div>
+        <div class="cota-nome">Axé</div>
+        <div class="cota-valor">R$ 3.000 / mês</div>
+        <ul>
+          <li>Co-branding exclusivo no projeto</li>
+          <li>Naming em eventos e oficinas</li>
+          <li>Produção de vídeo institucional</li>
+          <li>Matéria na mídia local com sua marca</li>
+          <li>Relatório mensal + reunião de alinhamento</li>
+          <li>Acesso ilimitado a eventos do projeto</li>
+          <li>Ativações especiais conforme demanda</li>
+        </ul>
+        <a href="#contato-wrap" class="btn-red">Quero apoiar</a>
+      </div>
+    </div>
+    <div class="fiscal-box">
+      <div class="icon">📋</div>
+      <div>
+        <h3>Transparência e Prestação de Contas</h3>
+        <p>O Ginga São Chico opera com total transparência. Todos os patrocinadores recebem relatórios periódicos com as ações realizadas, número de beneficiados, fotos, vídeos e prestação de contas dos recursos aplicados.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<div id="contato-wrap">
+  <h2>Vamos conversar?</h2>
+  <p>Entre em contato para saber mais sobre o projeto, apoiar ou agendar uma visita. Será um prazer apresentar o Ginga São Chico pessoalmente.</p>
+  <div class="contato-links">
+    <a class="ctlink" href="https://wa.me/5547999999999" target="_blank">📱 WhatsApp</a>
+    <a class="ctlink" href="mailto:contato@gingasaochico.com.br">✉️ E-mail</a>
+    <a class="ctlink" href="https://instagram.com/gingasaochico" target="_blank">📸 Instagram</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Ginga <span>São Chico</span></div>
+  <p>Grupo Beribazu Capoeira · São Francisco do Sul, SC<br>Coordenador: Paulo Satoshi Shinhe (Japa)</p>
+  <p style="font-size:.72rem;color:rgba(245,237,216,.2)">© 2025 Ginga São Chico. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.borderBottomColor =
+    window.scrollY > 80 ? 'rgba(200,16,46,0.4)' : 'rgba(200,16,46,0.2)';
+});
+</script>
+</body>
+</html>
